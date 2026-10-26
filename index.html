@@ -1,62 +1,105 @@
-<!doctype html>
-<html lang="km">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080f23">
-<title>SL:10PIPS Signal Scanner VIP</title>
+<title>SL:10PIPS | Signal Scanner VIP</title>
 <style>
-:root{--bg:#080f23;--panel:#111b32;--line:#183a5c;--cyan:#00e5ff;--blue:#1687f8;--gold:#f5b900;--green:#18d889;--muted:#a7b8d4}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#13274a 0%,var(--bg) 48%);font-family:system-ui,-apple-system,"Noto Sans Khmer",Arial,sans-serif;color:#f7fbff;min-height:100vh}
-.wrap{max-width:760px;margin:auto;padding:18px 14px 40px}.ticker{display:flex;gap:22px;overflow:hidden;white-space:nowrap;padding:10px 0;border-bottom:1px solid #20334e;color:#8cecff;font-weight:700;font-size:13px}.ticker span:nth-child(even){color:#ff646d}
-.top{display:flex;align-items:center;justify-content:space-between;margin:20px 0 28px}.brand{font-weight:900;font-size:clamp(22px,5vw,36px);letter-spacing:-1px}.brand b{color:var(--cyan);text-shadow:0 0 18px #00cce777}.lang{border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#17243b;color:#fff}
-.hero{text-align:center;padding:10px 0 24px}.hero h1{font-size:clamp(30px,7vw,49px);line-height:1.1;margin:0 0 12px}.hero h1 span{color:var(--cyan);text-shadow:0 0 24px #00e5ff66}.hero p{color:#d2dced;margin:10px auto;max-width:600px;line-height:1.8}.pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}.pill{padding:7px 13px;border:1px solid #174d58;background:#0c292f;border-radius:99px;color:var(--green);font-size:13px;font-weight:800}.pill.gold{color:#ffd21f;border-color:#69551b;background:#28230e}
-.members{margin:20px auto 28px;max-width:360px;border:1px solid #164b67;background:#111c31;border-radius:50px;padding:14px;display:flex;align-items:center;justify-content:center;gap:12px}.members strong{color:var(--cyan);font-size:20px}.members small{display:block;color:var(--muted)}
-.card{background:linear-gradient(145deg,#131e36,#0d172c);border:1px solid #26344e;border-radius:24px;padding:18px;box-shadow:0 15px 40px #0004;margin-top:16px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:16px;padding:14px 12px;font-weight:850;font-size:15px;cursor:pointer;min-height:54px}.btn-gold{background:linear-gradient(120deg,#ffd32b,#e89a00);color:#111827;box-shadow:0 0 20px #f5b90030}.btn-vip{background:#103b32;border:2px solid var(--green);color:#43ed9b}.upload{text-align:center;padding:30px 8px 18px}.cloud{font-size:68px;color:var(--cyan);text-shadow:0 0 22px #00e5ff44;line-height:1.2}.upload h2{font-size:22px;margin:12px 0}.upload p{color:var(--muted);line-height:1.7;font-size:14px}.file{display:block;width:100%;max-width:390px;margin:18px auto;color:#dce8fa;font-size:13px}.preview{display:none;max-width:100%;max-height:360px;object-fit:contain;border-radius:12px;border:1px solid #244260;margin:15px auto}.scan{background:linear-gradient(100deg,#14cfe5,#2674ef);color:white;border-radius:99px;width:85%;max-width:310px}.status{display:none;text-align:left;background:#0a1223;border:1px solid #203653;border-radius:14px;padding:14px;margin-top:18px;line-height:1.7}.status strong{color:var(--cyan)}.disclaimer{font-size:12px!important;color:#91a4c2!important}.keyrow{display:flex;gap:8px;margin-top:14px}.keyrow input{flex:1;min-width:0;background:#080f20;border:1px solid #30415e;border-radius:12px;padding:12px;color:white;font-size:15px}.smallbtn{background:#1d3555;color:white;border:1px solid #355478;border-radius:12px;padding:10px 12px;font-weight:700}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.mini{background:#101d35;border:1px solid #16486a;border-radius:16px;padding:15px}.mini h3{font-size:15px;margin:0 0 7px;color:#50dfff}.mini p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.footer{text-align:center;color:#7287a8;font-size:12px;margin-top:25px}
-@media(max-width:480px){.actions{grid-template-columns:1fr 1fr}.card{padding:13px}.btn{font-size:13px;padding:12px 8px}.grid2{grid-template-columns:1fr}.members{max-width:310px}}
+*{box-sizing:border-box}
+body{margin:0;background:#050914;color:#eaf5ff;font-family:Arial,sans-serif}
+header{padding:22px 16px;background:#081426;border-bottom:1px solid #087dff}
+.logo{font-size:25px;font-weight:900;color:#28bfff}
+.logo span{color:white}
+.tag{color:#91a8c7;font-size:12px;margin-top:6px}
+main{max-width:850px;margin:auto;padding:16px}
+.panel{background:#0b1628;border:1px solid #16385d;border-radius:14px;padding:17px;margin:14px 0}
+h2{font-size:17px;margin:0 0 14px;color:#65caff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.item{background:#07101f;border:1px solid #203753;border-radius:10px;padding:13px}
+.small{font-size:12px;color:#8ca5c7}
+.value{font-size:18px;font-weight:bold;margin-top:8px}
+button,.btn{display:block;width:100%;padding:13px;border:0;border-radius:9px;background:#0788ff;color:white;font-weight:bold;text-align:center;text-decoration:none;margin-top:12px;font-size:15px}
+button:active,.btn:active{opacity:.8}
+.green{color:#31f5a0}.red{color:#ff647c}
+.price{font-size:23px;font-weight:bold;color:#4dc7ff;margin:12px 0}
+ul{padding-left:20px;color:#b9cbe2;line-height:1.9}
+footer{text-align:center;color:#7188a8;padding:22px;font-size:12px}
+.notice{font-size:12px;color:#91a8c7;line-height:1.7}
 </style>
 </head>
 <body>
-<div class="ticker"><span>XAUUSD ▲</span><span>XAGUSD ▼</span><span>BTCUSD ▲</span><span>EURUSD ▲</span><span>NAS100 ▼</span><span>GBPUSD ▲</span></div>
-<main class="wrap">
-  <header class="top"><div class="brand">SL:10PIPS <b>Scanner</b></div><div class="lang">🇰🇭 ខ្មែរ ⌄</div></header>
-  <section class="hero">
-    <h1>SL:10PIPS <span>Scanner</span></h1>
-    <p>ប្រព័ន្ធជំនួយសម្រាប់ពិនិត្យ Chart និងរៀបចំគំនិតសញ្ញាជួញដូរ</p>
-    <div class="pills"><span class="pill gold">⚡ SIGNAL TOOL</span><span class="pill">VIP ACCESS</span></div>
-    <div class="members"><div style="font-size:27px">👥</div><div><small>SL:10PIPS COMMUNITY</small><strong>VIP Scanner</strong></div></div>
-  </section>
-  <section class="card">
-    <div class="actions"><button class="btn btn-gold" id="keyToggle">🔑 បញ្ចូល KEY</button><button class="btn btn-vip" id="vipBtn">🔒 VIP ACCESS</button></div>
-    <div id="keyPanel" style="display:none;margin-top:14px">
-      <label for="keyInput" style="font-size:13px;color:var(--muted)">បញ្ចូល Access KEY</label>
-      <div class="keyrow"><input id="keyInput" placeholder="បញ្ចូល KEY របស់អ្នក"><button class="smallbtn" id="checkKey">ពិនិត្យ</button></div>
-      <p class="disclaimer">Prototype: ការផ្ទៀងផ្ទាត់ KEY ពិត ត្រូវភ្ជាប់ Backend។ កុំប្រើ KEY សម្ងាត់ក្នុងកូដ Frontend។</p>
-      <div id="keyMsg" class="status"></div>
-    </div>
-    <div class="upload">
-      <div class="cloud">⇧</div><h2>📊 Upload Trading Chart</h2>
-      <p>ជ្រើសរើសរូប Chart ពី MT4 / MT5 / TradingView<br>សម្រាប់បង្ហាញក្នុងទំព័រ</p>
-      <input class="file" type="file" id="chartFile" accept="image/*">
-      <img id="preview" class="preview" alt="Chart preview">
-      <button class="btn scan" id="scanBtn">📷 សាកល្បង Scan</button>
-      <div class="status" id="scanStatus"></div>
-      <p class="disclaimer">ចំណាំ៖ នេះជាគំរូវេបសាយ។ ប៊ូតុង Scan មិនទាន់វិភាគទីផ្សារពិត ឬបង្កើត BUY/SELL ដោយស្វ័យប្រវត្តិទេ។ ត្រូវភ្ជាប់ market data/API និង logic សញ្ញាមុនដាក់ប្រើប្រាស់ពិត។</p>
+<header>
+  <div class="logo">SL:<span>10PIPS</span></div>
+  <div class="tag">CYBER NEON BLUE · SIGNAL SCANNER VIP</div>
+</header>
+<main>
+  <section class="panel">
+    <h2>MARKET WATCH</h2>
+    <div class="grid">
+      <div class="item"><div class="small">GOLD · XAUUSD</div><div class="value">Waiting for feed</div></div>
+      <div class="item"><div class="small">FOREX</div><div class="value">Waiting for feed</div></div>
+      <div class="item"><div class="small">BTCUSD</div><div class="value">Waiting for feed</div></div>
+      <div class="item"><div class="small">SCANNER STATUS</div><div class="value green">DEMO MODE</div></div>
     </div>
   </section>
-  <div class="grid2">
-    <div class="mini"><h3>🔐 VIP KEY</h3><p>អាចបន្ថែមកំណត់ចំនួន Scan និងថ្ងៃផុតកំណត់ ក្រោយភ្ជាប់ Backend។</p></div>
-    <div class="mini"><h3>💳 ABA KHQR</h3><p>អាចដាក់រូប KHQR ផ្លូវការរបស់បង និងបន្ថែមជំហានផ្ទៀងផ្ទាត់ការទូទាត់។</p></div>
-  </div>
-  <footer class="footer">SL:10PIPS Signal Scanner VIP · Trading involves risk. Signals are not guaranteed.</footer>
+
+  <section class="panel">
+    <h2>BUY / SELL SIGNAL SCANNER</h2>
+    <div class="small">Select market</div>
+    <select id="market" style="width:100%;padding:12px;margin-top:8px;background:#07101f;color:white;border:1px solid #294766;border-radius:8px">
+      <option>GOLD · XAUUSD</option>
+      <option>EURUSD</option>
+      <option>GBPUSD</option>
+      <option>BTCUSD</option>
+    </select>
+    <button onclick="scan()">RUN DEMO SCAN</button>
+    <div id="result" class="item" style="margin-top:12px">
+      <div class="small">SIGNAL RESULT</div>
+      <div class="value">Ready to scan</div>
+      <div class="notice">Demo only — not a live trading signal.</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>BUY YOUR SCANNER KEY</h2>
+    <div class="item"><b>1 Scan</b><div class="price">$2.50</div></div>
+    <div class="item" style="margin-top:10px"><b>2 Scans</b><div class="price">$4.50</div></div>
+    <div class="item" style="margin-top:10px"><b>5 Scans</b><div class="price">$8.50</div></div>
+    <div class="item" style="margin-top:10px"><b>24H Unlimited</b><div class="price">$25.00</div></div>
+  </section>
+
+  <section class="panel">
+    <h2>PAYMENT & KEY ACTIVATION</h2>
+    <p>1. Contact support to request a package.</p>
+    <p>2. Confirm payment instructions with support.</p>
+    <p>3. Send your payment proof to the administrator.</p>
+    <p>4. Your KEY must be verified by the administrator.</p>
+    <div class="notice">ABA KHQR image and verified USDT TRC20 wallet details have not been added yet. Contact support before sending money.</div>
+    <a class="btn" href="https://t.me/ItsTra_3" target="_blank" rel="noopener">CONTACT TELEGRAM SUPPORT</a>
+  </section>
+
+  <section class="panel">
+    <h2>VIP FEATURES</h2>
+    <ul>
+      <li>Gold, Forex and BTCUSD dashboard</li>
+      <li>BUY / SELL demo interface</li>
+      <li>Entry, Stop Loss and Take Profit display</li>
+      <li>Scan packages and VIP access concept</li>
+    </ul>
+    <div class="notice">Live market data, secure key management and automatic payment verification require a backend and external service integration.</div>
+  </section>
 </main>
+<footer>SL:10PIPS · Trade the plan, not the emotion.<br>Educational demo only. Trading involves risk.</footer>
 <script>
-const $=id=>document.getElementById(id);
-$('keyToggle').addEventListener('click',()=>{$('keyPanel').style.display=$('keyPanel').style.display==='none'?'block':'none';});
-$('vipBtn').addEventListener('click',()=>{$('keyPanel').style.display='block';$('keyInput').focus();});
-$('checkKey').addEventListener('click',()=>{const box=$('keyMsg');box.style.display='block';box.textContent=$('keyInput').value.trim()?'KEY verification is not connected yet. Backend integration is required.':'សូមបញ្ចូល KEY ជាមុនសិន។';});
-$('chartFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(!f.type.startsWith('image/')){alert('សូមជ្រើសរើសរូបភាព Chart។');return;}const url=URL.createObjectURL(f);$('preview').src=url;$('preview').style.display='block';});
-$('scanBtn').addEventListener('click',()=>{const box=$('scanStatus');box.style.display='block';box.innerHTML=$('chartFile').files.length?'<strong>Chart បានបង្ហាញរួចហើយ</strong><br>មុខងារវិភាគ BUY/SELL មិនទាន់ភ្ជាប់ទេ។ ត្រូវភ្ជាប់ market data និង signal engine មុនអាចផ្តល់សញ្ញាពិត។':'សូម Upload រូប Chart ជាមុនសិន។';});
+function scan(){
+ const market=document.getElementById('market').value;
+ document.getElementById('result').innerHTML=
+ '<div class="small">DEMO RESULT · '+market+'</div>'+
+ '<div class="value">SIMULATED SIGNAL</div>'+
+ '<p class="green">BUY / SELL: DEMO ONLY</p>'+
+ '<div class="notice">No live market feed is connected. Do not use this result to place a real trade.</div>';
+}
 </script>
 </body>
 </html>
